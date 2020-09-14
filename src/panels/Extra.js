@@ -14,7 +14,7 @@ import {
 } from "@vkontakte/vkui/";
 
 const Extra = ({ id, go, back }) => (
-	<Panel id={id} centered>
+	<Panel id={id}>
 		<PanelHeader left={<PanelHeaderBack onClick={back} />}>
 			Дополнительно
 		</PanelHeader>
@@ -30,17 +30,8 @@ const Extra = ({ id, go, back }) => (
 			</FormLayoutGroup>
 			<SelectMimicry top="Дата окончания" placeholder="Выберите дату" />
 		</FormLayout>
-		<FixedLayout
-			style={{
-				display: "flex",
-				flexDirecton: "column",
-				alignItems: "center",
-				justifyContent: "center",
-			}}
-			vertical="bottom"
-			filled
-		>
-			<Div style={{ width: 377 }}>
+		<FixedLayout vertical="bottom" filled>
+			<Div>
 				<Button size="l" onClick={go} data-to="snippet" stretched>
 					Создать сбор
 				</Button>

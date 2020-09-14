@@ -159,17 +159,8 @@ const Donation = ({ id, go, back, every }) => {
 				)}
 			</FormLayout>
 
-			<FixedLayout
-				style={{
-					display: "flex",
-					flexDirecton: "column",
-					alignItems: "center",
-					justifyContent: "center",
-				}}
-				vertical="bottom"
-				filled
-			>
-				<Div style={{ width: 377 }}>
+			<FixedLayout vertical="bottom" filled>
+				<Div>
 					<Button
 						size="l"
 						onClick={checkForm}

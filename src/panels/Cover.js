@@ -31,7 +31,7 @@ const Cover = ({ img, onChange, onClick }) => (
 					mode="tertiary"
 					style={{ borderRadius: 10 }}
 					onChange={onChange}
-					accept="image/x-png,image/gif,image/jpeg"
+					accept="image/*"
 					before={<Icon28PictureOutline />}
 				>
 					Выбрать обложку

@@ -1,6 +1,15 @@
 import React, { useState, useEffect } from "react";
 import bridge from "@vkontakte/vk-bridge";
 import { View, ScreenSpinner, ConfigProvider } from "@vkontakte/vkui/";
+import {
+	HashRouter as Router,
+	Switch,
+	Route,
+	Link,
+	Redirect,
+	useLocation,
+	useParams,
+} from "react-router-dom";
 import "@vkontakte/vkui/dist/vkui.css";
 
 import Home from "./panels/Home";
@@ -44,33 +53,11 @@ const App = () => {
 		if (newActivePanel === "home") {
 			bridge.send("VKWebAppEnableSwipeBack");
 		}
-		window.history.pushState({ panel: newActivePanel }, newActivePanel);
 		setHistory(newHistory);
 		setActivePanel(newActivePanel);
 	};
 
-	window.onpopstate = function(event) {
-		console.log(event.state, activePanel);
-		if (event.state === null || event.state.panel === activePanel) {
-			const newHistory = [...history];
-			newHistory.pop();
-			const newActivePanel = newHistory[newHistory.length - 1];
-			if (newActivePanel === "home") {
-				bridge.send("VKWebAppDisableSwipeBack");
-			}
-			setHistory(newHistory);
-			setActivePanel(newActivePanel);
-		} else {
-			const newActivePanel = event.state.panel;
-			const newHistory = [...history];
-			newHistory.push(newActivePanel);
-			if (newActivePanel === "home") {
-				bridge.send("VKWebAppEnableSwipeBack");
-			}
-			setHistory(newHistory);
-			setActivePanel(newActivePanel);
-		}
-	};
+	window.onpopstate = function(event) {};
 
 	return (
 		<ConfigProvider isWebView={true}>
